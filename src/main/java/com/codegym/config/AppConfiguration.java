@@ -1,5 +1,7 @@
 package com.codegym.config;
 
+import com.codegym.service.IStudentService;
+import com.codegym.service.StudentService;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
@@ -42,6 +44,11 @@ public class AppConfiguration extends WebMvcConfigurerAdapter implements Applica
         viewResolver.setPrefix("/WEB-INF/views/");
         viewResolver.setApplicationContext(applicationContext);
         return viewResolver;
+    }
+
+    @Bean
+    public IStudentService studentService(){
+        return new StudentService();
     }
 
 
